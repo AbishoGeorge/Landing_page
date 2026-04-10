@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeadStrategus — Always-On Revenue Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --blue:#185FA5;--darkblue:#0C447C;--lightblue:#E6F1FB;
+  --ink:#0a0a0a;--muted:#6b6b6b;--faint:#f4f4f2;--border:#e2e2de;
+  --green:#1D9E75;--greenlight:#E1F5EE;
+}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;line-height:1.6;}
+.page{max-width:900px;margin:0 auto;}
+
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2rem;border-bottom:1px solid var(--border);}
+.logo{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--darkblue);letter-spacing:-0.01em;}
+.nav-cta{font-size:13px;font-weight:500;color:var(--blue);background:var(--lightblue);padding:8px 18px;border-radius:6px;border:none;cursor:pointer;}
+
+.hero{padding:5rem 2rem 4rem;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#085041;background:var(--greenlight);padding:5px 14px;border-radius:20px;margin-bottom:2rem;}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.1;color:var(--darkblue);margin-bottom:1.5rem;letter-spacing:-0.02em;}
+.hero h1 em{font-style:italic;color:var(--blue);}
+.hero-sdrs{font-size:1.1rem;color:var(--muted);margin-bottom:0.75rem;line-height:1.6;}
+.hero-infra{font-size:1rem;font-weight:500;color:var(--darkblue);margin-bottom:2.5rem;padding-left:1rem;border-left:3px solid var(--blue);}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--border);padding:14px 28px;border-radius:8px;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.proof-item{padding:1.5rem 2rem;border-right:1px solid var(--border);}
+.proof-item:last-child{border-right:none;}
+.proof-num{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--darkblue);margin-bottom:4px;}
+.proof-label{font-size:12px;color:var(--muted);}
+
+.section{padding:4rem 2rem;}
+.section-tag{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:0.75rem;}
+.section h2{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,3.5vw,2rem);color:var(--darkblue);line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em;}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:580px;}
+.divider{border:none;border-top:1px solid var(--border);margin:0 2rem;}
+
+.problem-lines{margin-top:1.5rem;}
+.punch{font-size:1.05rem;font-weight:500;color:var(--ink);padding:0.6rem 0;border-bottom:1px solid var(--border);}
+.punch:last-child{border-bottom:none;}
+
+.credibility{margin-top:2rem;background:var(--faint);border-radius:10px;padding:1.25rem 1.5rem;font-size:14px;color:var(--muted);}
+.credibility strong{color:var(--darkblue);}
+
+.agents-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:2rem;}
+.agent-cell{padding:1.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.agent-cell:nth-child(2n){border-right:none;}
+.agent-cell:nth-last-child(-n+2){border-bottom:none;}
+.agent-num{font-size:11px;font-weight:500;color:var(--blue);letter-spacing:0.06em;margin-bottom:0.5rem;text-transform:uppercase;}
+.agent-cell h3{font-size:15px;font-weight:500;color:var(--darkblue);margin-bottom:0.4rem;}
+.agent-cell p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+.situations{margin-top:2rem;display:flex;flex-direction:column;gap:16px;}
+.situation-card{border:1px solid var(--border);border-radius:10px;padding:1.5rem;background:var(--faint);}
+.sit-label{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+.sit-row{display:grid;grid-template-columns:100px 1fr;gap:8px;margin-bottom:8px;font-size:14px;}
+.sit-row:last-child{margin-bottom:0;}
+.sit-key{font-weight:500;color:var(--blue);font-size:13px;}
+.sit-val{color:var(--ink);}
+.sit-result{color:var(--green);font-weight:500;}
+
+.outcomes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:1.5rem;}
+.outcome-card{background:var(--faint);border-radius:10px;padding:1.25rem;}
+.outcome-head{font-size:14px;font-weight:500;color:var(--darkblue);margin-bottom:4px;}
+.outcome-sub{font-size:13px;color:var(--muted);}
+
+.custom-box{margin-top:2rem;border:1px solid var(--border);border-radius:12px;padding:2rem;}
+.custom-lines{margin:1.25rem 0;display:flex;flex-direction:column;gap:10px;}
+.custom-line{font-size:14px;color:var(--ink);padding:10px 14px;background:var(--faint);border-radius:7px;}
+.custom-line strong{color:var(--blue);}
+
+.compound-months{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.5rem 0;}
+.month-card{background:var(--faint);border-radius:10px;padding:1.25rem;text-align:center;}
+.month-label{font-size:12px;font-weight:500;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em;}
+.month-desc{font-size:14px;font-weight:500;color:var(--darkblue);}
+
+.why-bullets{margin-top:1.5rem;display:flex;flex-direction:column;gap:10px;}
+.why-bullet{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--ink);}
+.why-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);margin-top:6px;flex-shrink:0;}
+
+.cta-section{padding:4rem 2rem;border-top:1px solid var(--border);text-align:center;}
+.cta-section h2{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--darkblue);margin-bottom:1rem;letter-spacing:-0.01em;}
+.cta-sub{font-size:0.95rem;color:var(--muted);line-height:1.75;max-width:480px;margin:0 auto 0.75rem;}
+.cta-note{font-size:13px;color:var(--muted);margin-bottom:2rem;font-style:italic;}
+.email-link{font-size:14px;font-weight:500;color:var(--blue);margin-top:1.25rem;display:block;text-decoration:none;}
+
+@media(max-width:640px){
+  .proof{grid-template-columns:repeat(2,1fr);}
+  .proof-item:nth-child(2){border-right:none;}
+  .proof-item:nth-child(3){border-right:1px solid var(--border);}
+  .agents-grid{grid-template-columns:1fr;}
+  .agent-cell{border-right:none;}
+  .agent-cell:nth-last-child(-n+2){border-bottom:1px solid var(--border);}
+  .agent-cell:last-child{border-bottom:none;}
+  .outcomes-grid{grid-template-columns:1fr;}
+  .compound-months{grid-template-columns:1fr;}
+  .sit-row{grid-template-columns:80px 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="nav">
+    <div class="logo">LeadStrategus</div>
+    <button class="nav-cta" onclick="document.getElementById('cta-section').scrollIntoView({behavior:'smooth'})">See it live</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-tag"><span class="hero-tag-dot"></span> Always-on revenue engine</div>
+    <h1>Find accounts already<br>in <em>buying mode.</em><br>Reach them first.</h1>
+    <p class="hero-sdrs">Think of it as a team of AI SDRs working your pipeline — 24/7.</p>
+    <p class="hero-infra">This isn't outsourcing. This is infrastructure for your pipeline.</p>
+    <div class="hero-cta-row">
+      <button class="btn-primary" onclick="document.getElementById('cta-section').scrollIntoView({behavior:'smooth'})">See your pipeline being built — live</button>
+      <button class="btn-ghost" onclick="document.getElementById('agents-section').scrollIntoView({behavior:'smooth'})">See what the agents do</button>
+    </div>
+  </section>
+
+  <div class="proof">
+    <div class="proof-item"><div class="proof-num">7+</div><div class="proof-label">Years of ABM execution data</div></div>
+    <div class="proof-item"><div class="proof-num">6</div><div class="proof-label">Specialised agent categories</div></div>
+    <div class="proof-item"><div class="proof-num">200+</div><div class="proof-label">Companies reached per campaign</div></div>
+    <div class="proof-item"><div class="proof-num">6</div><div class="proof-label">Industries served</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-tag">The problem</div>
+    <h2>Most pipeline is lost before a single message is sent.</h2>
+    <div class="problem-lines">
+      <div class="punch">Traditional demand gen is manual.</div>
+      <div class="punch">It doesn't scale.</div>
+      <div class="punch">It breaks the moment your team is stretched.</div>
+    </div>
+    <p class="section-sub" style="margin-top:1.5rem;">By the time your team builds the list, researches the account, writes the outreach, and hits send — the window has closed. A competitor who moved faster already has the meeting.</p>
+    <p class="section-sub" style="margin-top:0.75rem;font-weight:500;color:var(--ink);">The result: wasted effort, weak meetings, pipeline that looks busy but never converts.</p>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-tag">What this is</div>
+    <h2>An always-on pipeline engine that identifies, prioritises, and engages accounts before your competitors do.</h2>
+    <p class="section-sub" style="margin-top:1rem;">LeadStrategus deploys specialised AI agents across every stage of your demand generation funnel. They run continuously — finding accounts, reading signals, building context, writing outreach, and reactivating cold pipeline — while your team focuses on the conversations that close.</p>
+    <div class="credibility"><strong>Built on 7+ years of real ABM execution data</strong> across IT and SaaS, financial services, manufacturing, logistics, healthcare, and professional services.</div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section" id="agents-section">
+    <div class="section-tag">What the agents do</div>
+    <h2>A specialised agent for every stage of your funnel.</h2>
+    <div class="agents-grid">
+      <div class="agent-cell">
+        <div class="agent-num">01 — Discovery</div>
+        <h3>Account discovery</h3>
+        <p>Agents pull qualified company lists using your exact ICP — geography, industry, revenue, headcount. Hours of work, done in minutes. Without manual effort.</p>
+      </div>
+      <div class="agent-cell">
+        <div class="agent-num">02 — Intent</div>
+        <h3>Buying intent detection</h3>
+        <p>Agents watch hiring surges, leadership changes, funding events, and market activity — continuously. The moment an account crosses into buying mode, your team knows first. Now.</p>
+      </div>
+      <div class="agent-cell">
+        <div class="agent-num">03 — Research</div>
+        <h3>Deep account research</h3>
+        <p>Before every outreach, agents build a picture of what's happening inside each account. Your reps walk into every call knowing more than anyone else in the room.</p>
+      </div>
+      <div class="agent-cell">
+        <div class="agent-num">04 — Outreach</div>
+        <h3>Personalised outreach</h3>
+        <p>Agents write messages anchored to what each prospect actually cares about right now. Not a template with a name swapped in. Relevance that earns replies.</p>
+      </div>
+      <div class="agent-cell">
+        <div class="agent-num">05 — Follow-up</div>
+        <h3>Follow-up intelligence</h3>
+        <p>Agents track engagement and recommend the right next action at the right time — based on what's actually happening, not a fixed cadence that ignores reality.</p>
+      </div>
+      <div class="agent-cell">
+        <div class="agent-num">06 — Reactivation</div>
+        <h3>Reactivation</h3>
+        <p>When something changes at a dormant account — a new hire, funding round, leadership shift — the account surfaces automatically with a fresh, credible reason to reconnect.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-tag">In practice</div>
+    <h2>Here's what this looks like in real selling situations:</h2>
+    <div class="situations">
+
+      <div class="situation-card">
+        <div class="sit-label">Situation 1 — hiring surge</div>
+        <div class="sit-row"><span class="sit-key">Signal</span><span class="sit-val">A target account posts three senior technology roles in the same week.</span></div>
+        <div class="sit-row"><span class="sit-key">What happens</span><span class="sit-val">The agent flags the hiring surge, raises the account's priority, and surfaces context on what those roles signal about their investment cycle.</span></div>
+        <div class="sit-row"><span class="sit-key sit-result">Result</span><span class="sit-val sit-result">Your team reaches out before anyone else — with a message that actually lands.</span></div>
+      </div>
+
+      <div class="situation-card">
+        <div class="sit-label">Situation 2 — leadership change</div>
+        <div class="sit-row"><span class="sit-key">Signal</span><span class="sit-val">A dormant account announces a new CTO.</span></div>
+        <div class="sit-row"><span class="sit-key">What happens</span><span class="sit-val">The agent detects the change, triggers re-engagement, and recommends an outreach angle tailored to what incoming executives typically prioritise in their first 90 days.</span></div>
+        <div class="sit-row"><span class="sit-key sit-result">Result</span><span class="sit-val sit-result">A relationship that looked dead comes back — with timing and context working in your favour.</span></div>
+      </div>
+
+      <div class="situation-card">
+        <div class="sit-label">Situation 3 — buying group activity</div>
+        <div class="sit-row"><span class="sit-key">Signal</span><span class="sit-val">Multiple contacts at the same account engage over a short window.</span></div>
+        <div class="sit-row"><span class="sit-key">What happens</span><span class="sit-val">The agent detects the multi-thread pattern and adjusts timing and message sequence to match how the buying group is moving.</span></div>
+        <div class="sit-row"><span class="sit-key sit-result">Result</span><span class="sit-val sit-result">Outreach feels coordinated and considered. Not scattered.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-tag">What you get</div>
+    <h2>More meetings that matter. Less time wasted. Pipeline that actually converts.</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><div class="outcome-head">More qualified meetings</div><div class="outcome-sub">With accounts already showing buying signals</div></div>
+      <div class="outcome-card"><div class="outcome-head">Higher reply rates</div><div class="outcome-sub">Because the outreach is relevant, not generic</div></div>
+      <div class="outcome-card"><div class="outcome-head">Faster deal cycles</div><div class="outcome-sub">Less time chasing, more time converting</div></div>
+      <div class="outcome-card"><div class="outcome-head">Better pipeline quality</div><div class="outcome-sub">Not just more volume</div></div>
+      <div class="outcome-card"><div class="outcome-head">Zero signal fatigue</div><div class="outcome-sub">Agents filter the noise, surface what matters</div></div>
+      <div class="outcome-card"><div class="outcome-head">Campaigns that compound</div><div class="outcome-sub">Every cycle makes the next one sharper</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-tag">Custom agents</div>
+    <h2>Your workflow is unique. Your agents should be too.</h2>
+    <p class="section-sub">Beyond our core suite, we build agents tailored to exactly what your sales motion needs.</p>
+    <div class="custom-box">
+      <div class="custom-lines">
+        <div class="custom-line">Need one that scrapes job portals across India for IT hiring activity? <strong>We build it.</strong></div>
+        <div class="custom-line">Need one that tracks procurement tenders in your sector? <strong>We build it.</strong></div>
+        <div class="custom-line">Need one that reads annual reports and extracts investment priorities? <strong>We build that too.</strong></div>
+      </div>
+      <p style="font-size:14px;font-weight:500;color:var(--darkblue);">Tell us the job. We'll build the agent that does it.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-tag">How it compounds</div>
+    <h2>The longer it runs, the better it gets.</h2>
+    <p class="section-sub">Every signal processed, every outreach sent, every outcome recorded feeds back into how the agents prioritise, message, and time the next action. It doesn't plateau. It sharpens.</p>
+    <div class="compound-months">
+      <div class="month-card"><div class="month-label">Month 1</div><div class="month-desc">Agents are working.</div></div>
+      <div class="month-card"><div class="month-label">Month 3</div><div class="month-desc">Agents are learning.</div></div>
+      <div class="month-card"><div class="month-label">Month 6</div><div class="month-desc">Outperforming everything you ran manually.</div></div>
+    </div>
+    <p class="section-sub">The campaigns in month six beat month one — not because the team worked harder, but because the system learned what actually works in your market.</p>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-tag">Why LeadStrategus</div>
+    <h2>We didn't come from tech. We came from the work.</h2>
+    <p class="section-sub">LeadStrategus is a demand generation firm. We built the agents because we spent years doing this manually — and we knew exactly what was breaking, and exactly what to fix.</p>
+    <p class="section-sub" style="margin-top:0.75rem;">Our agents are shaped by real execution patterns across ICP selection, intent signals, outreach performance, follow-up timing, and conversion outcomes. The intelligence isn't theoretical.</p>
+    <div class="why-bullets">
+      <div class="why-bullet"><span class="why-dot"></span><span>End-to-end ABM execution experience — not just tooling</span></div>
+      <div class="why-bullet"><span class="why-dot"></span><span>Deep research and intent intelligence built from real campaigns</span></div>
+      <div class="why-bullet"><span class="why-dot"></span><span>Personalised outreach shaped by what has actually converted</span></div>
+      <div class="why-bullet"><span class="why-dot"></span><span>Custom agents for workflows that don't fit any standard playbook</span></div>
+    </div>
+    <p class="section-sub" style="margin-top:1.25rem;">Unlike platforms that surface scores and leave your team to figure out the rest — we turn signals into coordinated action. And we keep improving it.</p>
+  </section>
+
+  <section class="cta-section" id="cta-section">
+    <h2>Watch the agents build your<br>pipeline — in real time.</h2>
+    <p class="cta-sub">No slides. No scripted demo. We show the agents working on real accounts in your target market — finding them, scoring them, researching them, writing outreach for them.</p>
+    <p class="cta-note">You'll see exactly what's been running while everyone else was doing it manually.</p>
+    <button class="btn-primary" style="font-size:16px;padding:16px 36px;">Start the conversation</button>
+    <a class="email-link" href="mailto:hello@leadstrategus.com">hello@leadstrategus.com</a>
+  </section>
+
+</div>
+
+</body>
+</html>
